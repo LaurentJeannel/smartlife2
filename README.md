@@ -1,4 +1,4 @@
-# tuya2
+# smartlife2
  version off line
 
 le fichier wizard.js est à remplacer dans : C:\JarvisIA\plugins\smartlife2\cli\lib
