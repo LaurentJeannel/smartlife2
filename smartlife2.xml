@@ -1,5 +1,8 @@
-     <item>statut de la lampe<tag> data.verifdomo="vérif"</tag></item>
-     
+        <item>statut de la<tag> data.verifdomo="vérif"</tag></item>
+     <item>statue de la<tag> data.verifdomo="vérif"</tag></item>
+     <item>statut du<tag> data.verifdomo="vérif"</tag></item>
+     <item>statue du<tag> data.verifdomo="vérif"</tag></item>
+
      <item>allume la <tag> data.verifdomo="on"</tag></item>
      <item>allume le <tag> data.verifdomo="on"</tag></item>
      <item>allume l' <tag> data.verifdomo="on"</tag></item>
@@ -15,4 +18,3 @@
      <item>mets la couleur du </item>
      <item>met la couleur de </item>
      <item>met la couleur du </item>
-     
