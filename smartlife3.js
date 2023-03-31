@@ -42,21 +42,36 @@ device.on('error', error => {
 device.on('data', dat => {
  (async () => { console.log('Data from device:', dat);
 
-if(dat.dps['1']!==undefined){var dataDPSonoff="1"}else{var dataDPSonoff="20"}
-if(dat.dps['2']!==undefined){var dataDPScolour="2"}else{var dataDPScolour="21"}
-if(dat.dps['5']!==undefined){var dataDPSrvb="5";}else{var dataDPSrvb="24"}
+//if(dat.dps['1']!==undefined){ dataDPSonoff='1'}else{ dataDPSonoff='20'}
+//if(dat.dps['2']!==undefined){ dataDPScolour='2'}else{ dataDPScolour='21'}
+//if(dat.dps['5']!==undefined){ dataDPSrvb='5'}else{ dataDPSrvb='24'}
 
-if(dataDPSrvb=="5"){var red="ff01000000ffff";var green="23ff00006fffff";var blue="01001c00f3fe19"}else{var red="000003e803e8";var green="007803e803e8";var blue="00f003e803e8"}
+if(dat.dps['5']!==undefined){ red='ff01000000ffff'; green='23ff00006fffff'; blue='01001c00f3fe19'}else{ red='000003e803e8'; green='007803e803e8'; blue='00f003e803e8'}
 
-console.log(dataDPSonoff)
-console.log(dat.dps['1'],dat.dps[1])
+//console.log(dataDPSonoff)
+//console.log(dat.dps['1'],dat.dps[1])
+//console.log(dataDPSrvb,'rrrrrrrrrrrrrr')
+//dataDPSrvb='5'
+    
+    if((phrasedomo.search(new RegExp("vert","gi"))>-1)&&(dat.dps['1']!==undefined)){await device.set({multiple: true,data: {'1': true,'2' : 'colour' , '5': green}}).then(() => console.log("device was green")); device.disconnect();return false};
+    if((phrasedomo.search(new RegExp("vert","gi"))>-1)&&(dat.dps['1']==undefined)){await device.set({multiple: true,data: {'20': true,'21' : 'colour' , '24': green}}).then(() => console.log("device was green")); device.disconnect();return false};
+    
+    if((phrasedomo.search(new RegExp("rouge","gi"))>-1)&&(dat.dps['1']!==undefined)){await device.set({multiple: true,data: {'1': true,'2' : 'colour' , '5': red}}).then(() => console.log("device was red")); device.disconnect();return false};
+    if((phrasedomo.search(new RegExp("rouge","gi"))>-1)&&(dat.dps['1']==undefined)){await device.set({multiple: true,data: {'20': true,'21' : 'colour' , '24': red}}).then(() => console.log("device was red")); device.disconnect();return false};
+    
+    if((phrasedomo.search(new RegExp("bleu","gi"))>-1)&&(dat.dps['1']!==undefined)){await device.set({multiple: true,data: {'1': true,'2' : 'colour' , '5': blue}}).then(() => console.log("device blue")); device.disconnect();return false};
+    if((phrasedomo.search(new RegExp("bleu","gi"))>-1)&&(dat.dps['1']==undefined)){await device.set({multiple: true,data: {'20': true,'21' : 'colour' , '24': blue}}).then(() => console.log("device blue")); device.disconnect();return false};
+    
+    if((phrasedomo.search(new RegExp("blanc","gi"))>-1)&&(dat.dps['1']!==undefined)){await device.set({multiple: true,data: {'1': true,'2' : 'white'}}).then(() => console.log("device was white")); device.disconnect();return false};
+    if((phrasedomo.search(new RegExp("blanc","gi"))>-1)&&(dat.dps['1']==undefined)){await device.set({multiple: true,data: {'20': true,'21' : 'white'}}).then(() => console.log("device was white")); device.disconnect();return false};
+    
+    if((data.verifdomo=="on")&&(dat.dps['1']!==undefined)){console.log("onnnnnnnnn");await device.set({dps: '1', set: true}); device.disconnect();return false}
+    if((data.verifdomo=="on")&&(dat.dps['1']==undefined)){console.log("onnnnnnnnn");await device.set({dps: '20', set: true}); device.disconnect();return false}
+    
+    if((data.verifdomo=="off")&&(dat.dps['1']!==undefined)){console.log("offffffffffffff");await device.set({dps: '1', set: false}); device.disconnect();return false} 
+    if((data.verifdomo=="off")&&(dat.dps['1']==undefined)){console.log("offffffffffffff");await device.set({dps: '20', set: false}); device.disconnect();return false} 
 
- if(phrasedomo.search(new RegExp("vert","gi"))>-1){await device.set({multiple: true,data: {dataDPSonoff: true,dataDPScolour : "colour", dataDPSrvb: green}}).then(() => console.log("device was green")); device.disconnect()};
-    if(phrasedomo.search(new RegExp("rouge","gi"))>-1){await device.set({multiple: true,data: {dataDPSonoff: true,dataDPScolour : "colour", dataDPSrvb: red}}).then(() => console.log("device was red")); device.disconnect()};
-    if(phrasedomo.search(new RegExp("bleu","gi"))>-1){await device.set({multiple: true,data: {dataDPSonoff: true,dataDPScolour : "colour", dataDPSrvb: blue}}).then(() => console.log("device was blue")); device.disconnect()};
-    if(phrasedomo.search(new RegExp("blanc","gi"))>-1){await device.set({multiple: true,data: {dataDPSonoff: true,dataDPScolour : "white"}}).then(() => console.log("device was white")); device.disconnect()};
-    if(data.verifdomo=="on"){console.log("onnnnnnnnn");await device.set({dps: dataDPSonoff, set: true}); device.disconnect();}
-    if(data.verifdomo=="off"){console.log("offffffffffffff");await device.set({dps: dataDPSonoff, set: false}); device.disconnect();} 
+device.disconnect()
 
 })();
 
