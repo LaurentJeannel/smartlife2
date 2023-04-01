@@ -12,5 +12,4 @@ phrase d'appel dans le xml
 !! Jarvis à la racine du dique c
 si non, modifier nodevars-raccourci et nodevarstuya.bat et wizzard.js
 
-!! smartlife3.js est une version plus simple, mais moins rapide
-pour test replacer smarlife2 par samrtlife3 et renommer en smartlife2
+!! les objets doivent etre allimentés lors du lancement de Jarvis
