@@ -169,7 +169,7 @@ if(pharsesplit[countsmart+1]!==undefined){console.log('gooooooo')
 
 eval(m+result)+".disconnect()"
 console.log("disconnnect")
-JarvisIaCall("Mathilde "+pharsesplit[countsmart+1])}
+JarvisIaCall(JarvisIANom+" "+pharsesplit[countsmart+1])}
 //if(phrasedomo.search(new RegExp("vert","gi"))>-1){eval( m+result+'.set({multiple: true,data: {dataDPSonoff: true,"2" : "colour", "5": "23ff00006fffff"}}).then(() => console.log("device was changed"))');}
    
 
