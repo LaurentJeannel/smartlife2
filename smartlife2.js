@@ -130,8 +130,8 @@ if(result ===undefined){console.log('rien'); return false}
       t=t+pharsesplit[x]
         if(x<pharsesplit.length-1){t=t+" et "}
   }
-  
-  JarvisIaCall(JarvisIANom+" "+t)}
+setTimeout(function () {JarvisIaCall(JarvisIANom+" "+t);console.log('go go go')}, 500)
+}
 
 })();
 
