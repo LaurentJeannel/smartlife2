@@ -56,10 +56,24 @@ for(var i=0;i<objet.length;i++){
     t=t.trim()
     if(phrasedomo.search(new RegExp(t,"gi"))>-1){var result=i;console.log("result = "+i)}
 }
+console.log(pharsesplit.length,'rrrrrrrrrrrrrrrr')
 
-if(result ===undefined){console.log('rien'); return false}
-
+if((result ===undefined)&&(pharsesplit.length<2)){console.log('rien'); return false}
+if((result ===undefined)&&(pharsesplit.length>1)){
+  console.log('rien mais on continue')
+  pharsesplit.splice(0,1)
+    var t=""
+      for (var x=0;x<pharsesplit.length;x++){
+        t=t+pharsesplit[x]
+        if(x<pharsesplit.length-1){t=t+" et "}
+      }
+    //setTimeout(function () {JarvisIaCall(JarvisIANom+" "+t);console.log('go go go')}, 500)
+    JarvisIaCall(JarvisIANom+" "+t)
+    console.log('go go go')
+  return false
+}
 /////////////////////////////////////////
+
 (async () => {
 
   var dataDPSonoff="0"
@@ -77,61 +91,56 @@ if(result ===undefined){console.log('rien'); return false}
   if (data.verifdomo=="vérif"){console.log(datadomo.dps[1],datadomo.dps[20])}
 
   if((data.verifdomo=="mode")&&(datadomo.dps['1']!==undefined)){
-    await eval(m+result).set({multiple: true,data: {'1': true,'2' : scene,'6':sceneval}}).then(() => console.log('device was flash mode')); await eval(m+result).disconnect();
-  };
+    await eval(m+result).set({multiple: true,data: {'1': true,'2' : scene,'6':sceneval}}).then(() => console.log('device was flash mode'))  };
   if((data.verifdomo=="mode")&&(datadomo.dps['20']!==undefined)){
-    await eval(m+result).set({multiple: true,data: {'20': true,'21' : scene,'25':sceneval}}).then(() => console.log('device was flash mode')); await eval(m+result).disconnect();
-  };
+    await eval(m+result).set({multiple: true,data: {'20': true,'21' : scene,'25':sceneval}}).then(() => console.log('device was flash mode'))  };
     
   if((phrasedomo.search(new RegExp("vert","gi"))>-1)&&(datadomo.dps['1']!==undefined)){
-    await eval(m+result).set({multiple: true,data: {'1': true,'2' : 'colour' , '5': green}}).then(() => console.log("device was green")); await eval(m+result).disconnect();
-  };
+    await eval(m+result).set({multiple: true,data: {'1': true,'2' : 'colour' , '5': green}}).then(() => console.log("device was green"))  };
   if((phrasedomo.search(new RegExp("vert","gi"))>-1)&&(datadomo.dps['1']==undefined)){
-    await eval(m+result).set({multiple: true,data: {'20': true,'21' : 'colour' , '24': green}}).then(() => console.log("device was green")); await eval(m+result).disconnect();
-  };
+    await eval(m+result).set({multiple: true,data: {'20': true,'21' : 'colour' , '24': green}}).then(() => console.log("device was green"))  };
     
   if((phrasedomo.search(new RegExp("rouge","gi"))>-1)&&(datadomo.dps['1']!==undefined)){
-    await eval(m+result).set({multiple: true,data: {'1': true,'2' : 'colour' , '5': red}}).then(() => console.log("device was red")); await eval(m+result).disconnect();
-  };
+    await eval(m+result).set({multiple: true,data: {'1': true,'2' : 'colour' , '5': red}}).then(() => console.log("device was red"))  };
   if((phrasedomo.search(new RegExp("rouge","gi"))>-1)&&(datadomo.dps['1']==undefined)){
-    await eval(m+result).set({multiple: true,data: {'20': true,'21' : 'colour' , '24': red}}).then(() => console.log("device was red")); await eval(m+result).disconnect();
-  };
+    await eval(m+result).set({multiple: true,data: {'20': true,'21' : 'colour' , '24': red}}).then(() => console.log("device was red"))  };
     
   if((phrasedomo.search(new RegExp("bleu","gi"))>-1)&&(datadomo.dps['1']!==undefined)){
-    await eval(m+result).set({multiple: true,data: {'1': true,'2' : 'colour' , '5': blue}}).then(() => console.log("device blue")); await eval(m+result).disconnect();
-  };
+    await eval(m+result).set({multiple: true,data: {'1': true,'2' : 'colour' , '5': blue}}).then(() => console.log("device blue"))  };
   if((phrasedomo.search(new RegExp("bleu","gi"))>-1)&&(datadomo.dps['1']==undefined)){
-    await eval(m+result).set({multiple: true,data: {'20': true,'21' : 'colour' , '24': blue}}).then(() => console.log("device blue")); await eval(m+result).disconnect();
-  };
+    await eval(m+result).set({multiple: true,data: {'20': true,'21' : 'colour' , '24': blue}}).then(() => console.log("device blue"))  };
     
   if((phrasedomo.search(new RegExp("blanc","gi"))>-1)&&(datadomo.dps['1']!==undefined)){
-    await eval(m+result).set({multiple: true,data: {'1': true,'2' : 'white'}}).then(() => console.log("device was white")); await eval(m+result).disconnect();
-  };
+    await eval(m+result).set({multiple: true,data: {'1': true,'2' : 'white'}}).then(() => console.log("device was white"))  };
   if((phrasedomo.search(new RegExp("blanc","gi"))>-1)&&(datadomo.dps['1']==undefined)){
-    await eval(m+result).set({multiple: true,data: {'20': true,'21' : 'white'}}).then(() => console.log("device was white")); await eval(m+result).disconnect();
-  };
+    await eval(m+result).set({multiple: true,data: {'20': true,'21' : 'white'}}).then(() => console.log("device was white"))  };
     
  
-  if((data.verifdomo=="off")&&(datadomo.dps['20']!==undefined)){console.log("offffffffffffff");await eval(m+result).set({dps: '20', set: false}); await eval(m+result).disconnect()} 
-  if((data.verifdomo=="off")&&(datadomo.dps['1']!==undefined)){console.log("device OFF");await eval(m+result).set({dps: '1', set: false});await eval(m+result).disconnect()}
+  if((data.verifdomo=="off")&&(datadomo.dps['20']!==undefined)){console.log("offffffffffffff");await eval(m+result).set({dps: '20', set: false})} 
+  if((data.verifdomo=="off")&&(datadomo.dps['1']!==undefined)){console.log("device OFF");await eval(m+result).set({dps: '1', set: false})}
 
-  if((data.verifdomo=="on")&&(datadomo.dps['1']!==undefined)){console.log("device ON");await eval(m+result).set({dps: '1', set: true});; await eval(m+result).disconnect()}
-  if((data.verifdomo=="on")&&(datadomo.dps['20']!==undefined)){console.log("onnnnnnnnn");await eval(m+result).set({dps: '20', set: true});await eval(m+result).disconnect()}
+  if((data.verifdomo=="on")&&(datadomo.dps['1']!==undefined)){console.log("device ON");await eval(m+result).set({dps: '1', set: true})}
+  if((data.verifdomo=="on")&&(datadomo.dps['20']!==undefined)){console.log("onnnnnnnnn");await eval(m+result).set({dps: '20', set: true})}
+//await eval(m+result).disconnect()
+eval(m+result).disconnect()
+setTimeout(() => {  
 
-  if(pharsesplit[countsmart+1]!==undefined){console.log('gooooooo')
-    
-
-  //await eval(m+result)+".disconnect()"
-  console.log("                          disconnnect")
-  pharsesplit.splice(0,1)
-
-  var t=""
-  for (var x=0;x<pharsesplit.length;x++){
-      t=t+pharsesplit[x]
+  if(pharsesplit[countsmart+1]!==undefined){
+    //await eval(m+result)+".disconnect()"
+    console.log("                          disconnnect")
+    pharsesplit.splice(0,1)
+    var t=""
+      for (var x=0;x<pharsesplit.length;x++){
+        t=t+pharsesplit[x]
         if(x<pharsesplit.length-1){t=t+" et "}
+      }
+    //setTimeout(function () {JarvisIaCall(JarvisIANom+" "+t);console.log('go go go')}, 500)
+    JarvisIaCall(JarvisIANom+" "+t)
+    console.log('go go go')
   }
-setTimeout(function () {JarvisIaCall(JarvisIANom+" "+t);console.log('go go go')}, 500)
-}
+
+}, 500);
+
 
 })();
 
