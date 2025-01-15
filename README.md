@@ -17,8 +17,6 @@ Cliquez sur "Ajouter un compte d'application" et scannez le code QR à partir de
 
 /////////////////
 
-le fichier wizard.js est à remplacer dans : C:\JarvisIA\plugins\smartlife2\cli\lib
-
 cliquer sur nodevars-Raccourci et rentrer les valeurs
 
 lancer Jarvis
@@ -26,6 +24,5 @@ lancer Jarvis
 phrase d'appel dans le xml
 
 !! Jarvis à la racine du dique c
-si non, modifier nodevars-raccourci et nodevarstuya.bat et wizzard.js
 
 !! les objets doivent etre allimentés lors du lancement de Jarvis
