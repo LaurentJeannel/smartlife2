@@ -25,4 +25,4 @@ phrase d'appel dans le xml
 
 !! Jarvis à la racine du dique c
 
-!! les objets doivent etre allimentés lors du lancement de Jarvis
+!! les objets doivent etre allimentés lors du lancement de Jarvis et les appis sur smatphone étéintent
