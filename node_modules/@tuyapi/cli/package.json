@@ -1,0 +1,96 @@
+{
+  "_from": "@tuyapi/cli",
+  "_id": "@tuyapi/cli@1.18.3",
+  "_inBundle": false,
+  "_integrity": "sha512-O2SbvN6QAyN6DIdQu01VsXrc7/Nc2P235o6FTqt5bM06fTIVzwwOLpziIcGhTRYFJ1RlQhkm3HuJHddfUovbqg==",
+  "_location": "/@tuyapi/cli",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@tuyapi/cli",
+    "name": "@tuyapi/cli",
+    "escapedName": "@tuyapi%2fcli",
+    "scope": "@tuyapi",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@tuyapi/cli/-/cli-1.18.3.tgz",
+  "_shasum": "838b1a8d5913f6608a9eb6f41a0907d12b82644d",
+  "_spec": "@tuyapi/cli",
+  "_where": "C:\\tuya",
+  "author": {
+    "name": "Max Isom",
+    "email": "codetheweb@icloud.com",
+    "url": "https://maxisom.me"
+  },
+  "bin": {
+    "tuya-cli": "cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/TuyaAPI/cli/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@tuya/tuya-connector-nodejs": "^2.0.2",
+    "@tuyapi/link": "^0.5.0",
+    "@tuyapi/stub": "^0.2.0",
+    "cli-table3": "^0.6.0",
+    "colors": "1.4.0",
+    "commander": "^5.1.0",
+    "configstore": "^5.0.1",
+    "debug": "^4.1.1",
+    "es-aggregate-error": "^1.0.3",
+    "finalhandler": "^1.1.2",
+    "http-mitm-proxy": "^0.8.2",
+    "inquirer": "^7.2.0",
+    "keypress": "^0.2.1",
+    "ora": "^4.0.4",
+    "promise.any": "^2.0.2",
+    "qrcode-terminal": "^0.12.0",
+    "serve-static": "^1.14.1",
+    "tuyapi": "^7.1.1",
+    "update-notifier": "^4.1.0"
+  },
+  "deprecated": false,
+  "description": "🔧 A CLI for Tuya devices",
+  "devDependencies": {
+    "husky": "4.2.5",
+    "xo": "0.32.0"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "homepage": "https://github.com/TuyaAPI/cli#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  },
+  "keywords": [
+    "tuya",
+    "cli",
+    "iot"
+  ],
+  "license": "MIT",
+  "main": "cli.js",
+  "name": "@tuyapi/cli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TuyaAPI/cli.git"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "version": "1.18.3",
+  "xo": {
+    "rules": {
+      "camelcase": "off"
+    }
+  }
+}
